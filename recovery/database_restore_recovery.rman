@@ -1,0 +1,9 @@
+# Disaster-recovery lab example.
+# Assumes controlfile/SPFILE and backup availability have already been verified.
+STARTUP MOUNT;
+RESTORE DATABASE;
+RECOVER DATABASE;
+
+# Do not OPEN RESETLOGS automatically.
+# The DBA should confirm the recovery outcome and determine the appropriate
+# OPEN operation for the specific recovery scenario.
