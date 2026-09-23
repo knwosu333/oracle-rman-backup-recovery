@@ -1,0 +1,8 @@
+# Example: restore and recover a damaged/lost datafile.
+# Replace <datafile_number> with the verified file number.
+RUN {
+  SQL 'ALTER DATABASE DATAFILE <datafile_number> OFFLINE';
+  RESTORE DATAFILE <datafile_number>;
+  RECOVER DATAFILE <datafile_number>;
+  SQL 'ALTER DATABASE DATAFILE <datafile_number> ONLINE';
+}
