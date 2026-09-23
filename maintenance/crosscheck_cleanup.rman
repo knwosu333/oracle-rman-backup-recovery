@@ -1,0 +1,12 @@
+# Synchronize RMAN repository with backup files
+CROSSCHECK BACKUP;
+CROSSCHECK ARCHIVELOG ALL;
+
+# Review objects RMAN considers expired
+LIST EXPIRED BACKUP;
+LIST EXPIRED ARCHIVELOG ALL;
+
+# Delete repository records for files confirmed missing.
+# Review output carefully before enabling these commands.
+# DELETE NOPROMPT EXPIRED BACKUP;
+# DELETE NOPROMPT EXPIRED ARCHIVELOG ALL;
