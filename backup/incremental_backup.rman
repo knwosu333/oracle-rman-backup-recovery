@@ -1,0 +1,11 @@
+# Incremental backup examples
+# Level 0 establishes the incremental baseline.
+BACKUP AS COMPRESSED BACKUPSET INCREMENTAL LEVEL 0 DATABASE
+  TAG 'INCR_LEVEL_0';
+
+# Run on the appropriate schedule after a level 0 baseline.
+BACKUP AS COMPRESSED BACKUPSET INCREMENTAL LEVEL 1 DATABASE
+  TAG 'INCR_LEVEL_1';
+
+BACKUP ARCHIVELOG ALL NOT BACKED UP 1 TIMES
+  TAG 'ARCHIVELOG_BACKUP';
